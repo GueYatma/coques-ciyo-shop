@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(154, 182, 255, 0.4) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(154, 182, 255, 0.3);
+  border-radius: 999px;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(120, 183, 255, 0.35), transparent 40%),
+    radial-gradient(circle at 80% 10%, rgba(210, 160, 255, 0.28), transparent 45%),
+    radial-gradient(circle at 30% 80%, rgba(160, 255, 235, 0.3), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(255, 190, 220, 0.25), transparent 40%),
+    linear-gradient(180deg, #f7f8fc 0%, #eef2f7 50%, #f7f8fc 100%);
+  color: #0f172a;
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.5));
+  backdrop-filter: blur(26px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 25px 70px rgba(15, 23, 42, 0.12),
+    0 0 40px rgba(90, 120, 255, 0.12);
+}
+
+.glass-panel {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.55));
+  backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 25px 70px rgba(15, 23, 42, 0.12),
+    0 0 50px rgba(120, 180, 255, 0.18);
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/></filter><rect width="140" height="140" filter="url(%23n)" opacity="0.35"/></svg>');
+}
+
+.blur-blob {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  filter: blur(120px);
+  opacity: 0.5;
+  animation: floatBlob 22s ease-in-out infinite;
+}
+
+@keyframes floatBlob {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(30px, -20px, 0);
+  }
+}
+
+.text-shadow {
+  text-shadow: 0 12px 30px rgba(148, 163, 184, 0.6);
+}
+
+.writing-vertical {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.badge {
+  @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-neon-500 to-ember-400 px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90;
+  box-shadow: 0 15px 35px rgba(91, 124, 250, 0.35);
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/60 bg-white/60 px-5 py-2 text-sm font-semibold text-ink-900 transition hover:bg-white/80;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.input {
+  @apply w-full rounded-2xl border border-white/70 bg-white/70 px-4 py-3 text-sm text-ink-900 placeholder:text-ink-700/50 focus:border-neon-400 focus:outline-none focus:ring-2 focus:ring-neon-400/30;
+}
+
+.select {
+  @apply w-full rounded-2xl border border-white/70 bg-white/70 px-4 py-3 text-sm text-ink-900 focus:border-neon-400 focus:outline-none focus:ring-2 focus:ring-neon-400/30;
+}
+
+.card-hover {
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow:
+    0 35px 90px rgba(15, 23, 42, 0.18),
+    0 0 45px rgba(120, 160, 255, 0.18);
+  filter: saturate(1.05);
+}
