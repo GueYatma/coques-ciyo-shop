@@ -64,10 +64,18 @@ export default function Home() {
     <div className="mx-auto max-w-6xl px-6 py-12">
       <section className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-6">
-          <span className="badge bg-white/70 text-neon-500">CIYO premium lab</span>
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="badge rounded-full border border-white/60 bg-white/40 px-4 py-1 text-xs font-bold uppercase tracking-wide text-ink-700 shadow-glass backdrop-blur">
+              DEPLOY TEST ✅
+            </span>
+            <span className="badge bg-white/70 text-neon-500">CIYO premium lab</span>
+          </div>
           <h1 className="text-shadow font-display text-4xl leading-tight md:text-5xl">
             L&#39;expérience e-commerce premium pour les coques de téléphone.
           </h1>
+          <p className="text-xs font-semibold uppercase tracking-wide text-ink-500">
+            Dernier déploiement : 11/02/2026 01:32
+          </p>
           <p className="text-sm text-ink-600">
             V1 frontend pensée pour intégrer n8n, PostgreSQL et des paiements Stripe/PayPal.
             Les données sont mockées, mais prêtes pour un catalogue réel.
