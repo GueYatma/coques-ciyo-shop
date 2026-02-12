@@ -4,6 +4,8 @@ import { Heart, ShoppingBag } from 'lucide-react'
 import { useCartStore } from '@/stores/cartStore'
 import { useWishlistStore } from '@/stores/wishlistStore'
 import { FooterRail } from '@/components/FooterRail'
+import { useLocation } from 'react-router-dom'
+import { PromoBanner } from '@/components/PromoBanner'
 
 const primaryNav = [
   { label: 'Accueil', to: '/' },
@@ -19,9 +21,12 @@ type LayoutProps = {
 export const Layout = ({ children }: LayoutProps) => {
   const totalItems = useCartStore((state) => state.totalItems)
   const wishlistCount = useWishlistStore((state) => state.items.length)
+  const location = useLocation()
+  const showBanner = location.pathname === '/' || location.pathname === '/catalogue'
 
   return (
     <div className="relative min-h-screen overflow-hidden">
+      {showBanner && <PromoBanner />}
       <div className="blur-blob bg-neon-500/30 -top-16 -left-24" />
       <div className="blur-blob bg-ember-500/25 top-1/4 -right-32" />
       <div className="blur-blob bg-neon-300/30 bottom-[-140px] left-1/3" />
